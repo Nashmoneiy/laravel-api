@@ -25,16 +25,12 @@ Route::post('checkout', [CategoryController::class, 'checkout']);
  Route::get('verify-transaction/{reference}', [CategoryController::class, 'verify']);
 
 
-
-
-
 Route::middleware(['auth:sanctum'])->group(function () {   
     Route::post('add-to-cart', [CategoryController::class, 'cart']);
     Route::get('cart', [CategoryController::class, 'viewCart']);
     Route::put('update-cart/{cart_id}/{scope}', [CategoryController::class, 'updateCart']);
     Route::delete('delete-cart/{id}', [CategoryController::class, 'deleteCart']);
-    Route::get('clear-cart', [CategoryController::class, 'clear']);
-   
+    Route::get('clear-cart', [CategoryController::class, 'clear']); 
     
     });
 
@@ -57,7 +53,4 @@ Route::middleware(['auth:sanctum','isAAdmin'])->group(function () {
         Route::get('order-details/{id}', [CategoryController::class, 'details']);
 
     });
-   
-
-
     });
