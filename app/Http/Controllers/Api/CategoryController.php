@@ -274,7 +274,7 @@ class CategoryController extends Controller
     ])->post('https://api.paystack.co/transaction/initialize', [
         'amount' => $amount,
         'email' => $request->email,
-        'callback_url' => "https://ecommerce-react-1mws.vercel.app/payment-success",
+        'callback_url' => "https://ecommerce-react-tkbn.vercel.app/payment-success",
     ])->json();
 
     $order = new Order;
