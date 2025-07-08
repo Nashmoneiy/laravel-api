@@ -204,12 +204,10 @@ class CategoryController extends Controller
             }
         }else {
             
-            return response()->json([
-                
+            return response()->json([    
                     'message' => 'product not found'
                 ],404);
-        }   
-        
+        }      
     }
 
     public function viewCart() {
@@ -238,9 +236,7 @@ class CategoryController extends Controller
             $cartitem->delete();
              return response()->json([
             'message' => 'item removed from card'
-        ]);
-        
-       
+        ]);  
     }
 
    public function checkout(Request $request) {
@@ -274,7 +270,7 @@ class CategoryController extends Controller
     ])->post('https://api.paystack.co/transaction/initialize', [
         'amount' => $amount,
         'email' => $request->email,
-        'callback_url' => "https://ecommerce-react-tkbn.vercel.app/payment-success",
+        'callback_url' => "https://ecommerce-react-lcg7-oelrxrl4y-nashville.vercel.app",
     ])->json();
 
     $order = new Order;
@@ -308,14 +304,11 @@ class CategoryController extends Controller
     }
 }
 
-
     return response()->json([
         'access_code' => $response['data']['access_code'],
         'reference' => $response['data']['reference'],
     ], 200);
 }
-
-
 
 public function verify($reference) {
     $response = Http::withHeaders([
@@ -339,7 +332,6 @@ public function verify($reference) {
             ]);
         }
      
-        
     }else {
         return response()->json([
             'message' => 'payment failed'

@@ -21,8 +21,7 @@ Route::get('category', [CategoryController::class, 'index']);
 Route::get('collections/{slug}', [CategoryController::class, 'products']);
 Route::get('collection/{category_slug}/{product_slug}', [CategoryController::class, 'viewProduct']);
 Route::post('checkout', [CategoryController::class, 'checkout']);
-
- Route::get('verify-transaction/{reference}', [CategoryController::class, 'verify']);
+Route::get('verify-transaction/{reference}', [CategoryController::class, 'verify']);
 
 
 Route::middleware(['auth:sanctum'])->group(function () {   
